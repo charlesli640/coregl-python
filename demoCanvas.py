@@ -37,7 +37,7 @@ class DemoCanvas(Canvas):
         glViewport(0, 0, w, h)
 
     def initializeGL(self):
-        print glGetString(GL_VERSION)
+        print ("GL_VERSION: {}".format(glGetString(GL_VERSION)))
         glClearColor(0.0, 0.25, 0.5, 1.0)
         self.programs = load_shaders()
         self.vao = glGenVertexArrays(1)

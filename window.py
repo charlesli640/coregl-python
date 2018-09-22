@@ -1,6 +1,8 @@
-from PyQt4 import QtGui, QtCore
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
-class Window(QtGui.QMainWindow):
+class Window(QMainWindow):
     def __init__(self, canvasClass):
         super(Window, self).__init__()
         self.canvas = canvasClass(self)
@@ -10,5 +12,5 @@ class Window(QtGui.QMainWindow):
         self.show()
 
     def keyPressEvent(self, e):
-        if e.key() == QtCore.Qt.Key_Escape:
+        if e.key() == Qt.Key_Escape:
             self.close()

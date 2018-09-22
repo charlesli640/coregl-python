@@ -25,17 +25,17 @@ def look_at(eye, target, up):
     U = up / LA.norm(up)
     s = np.cross(f, U)
     u = np.cross(s, f)
-    M = np.matrix(np.identity(4))
+    M = np.identity(4)
     M[:3,:3] = np.vstack([s,u,-f])
     T = translation(-eye)
-    return np.matrix(M * T, 'f')
+    return np.array(M * T, 'f')
 
 def perspective(fovy, aspect, f, n):
     s = 1.0/math.tan(math.radians(fovy)/2.0)
     sx, sy = s / aspect, s
     zz = (f+n)/(n-f)
     zw = 2*f*n/(n-f)
-    m = np.matrix([[sx,0,0,0],
+    m = np.array([[sx,0,0,0],
                    [0,sy,0,0],
                    [0,0,zz,zw],
                    [0,0,-1,0]], 'f')

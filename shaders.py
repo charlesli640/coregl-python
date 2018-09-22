@@ -67,7 +67,7 @@ def load_shaders(glslFiles = ProgramFiles, attribs = Attribs, programMap = Progr
             glCompileShader(sHandle)
             success = glGetShaderiv(sHandle, GL_COMPILE_STATUS)
             if not success:
-                print 'Error in', stageName, snippetList
+                print ("Error in {} {}".format(stageName, snippetList))
                 infolog = glGetShaderInfoLog(sHandle)
                 raise SystemExit(infolog)
             glAttachShader(programHandle, sHandle)
